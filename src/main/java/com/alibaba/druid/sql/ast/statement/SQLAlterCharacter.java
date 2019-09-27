@@ -21,7 +21,14 @@ import com.alibaba.druid.sql.visitor.SQLASTVisitor;
 
 public class SQLAlterCharacter extends SQLObjectImpl implements SQLAlterTableItem {
 
+    /**
+     * 字符集；
+     */
     private SQLExpr characterSet;
+
+    /**
+     * 排序；
+     */
     private SQLExpr collate;
 
     public void accept0(SQLASTVisitor visitor) {
