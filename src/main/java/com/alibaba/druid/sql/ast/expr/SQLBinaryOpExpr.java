@@ -34,11 +34,30 @@ import com.alibaba.druid.util.Utils;
 public class SQLBinaryOpExpr extends SQLExprImpl implements SQLReplaceable, Serializable {
 
     private static final long   serialVersionUID = 1L;
+
+    /**
+     * 左算子表达式；
+     */
     protected SQLExpr           left;
+
+    /**
+     * 右算子表达式；
+     */
     protected SQLExpr           right;
+
+    /**
+     * 二元运算符号；
+     */
     protected SQLBinaryOperator operator;
+
+    /**
+     * 数据类型；
+     */
     protected String            dbType;
 
+    /**
+     *
+     */
     private boolean             bracket  = false;
 
     // only for parameterized output

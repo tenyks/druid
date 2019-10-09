@@ -63,7 +63,7 @@ public enum SQLBinaryOperator {
 
     ILike("ILIKE", 110),
     NotILike("NOT ILIKE", 110),
-    AT_AT("@@", 110), // postgresql textsearch
+    AT_AT("@@", 110), // postgresql text-search
     SIMILAR_TO("SIMILAR TO", 110),
     POSIX_Regular_Match("~", 110),
     POSIX_Regular_Match_Insensitive("~*", 110),

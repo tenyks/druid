@@ -24,6 +24,9 @@ import com.alibaba.druid.sql.ast.SQLObject;
 import com.alibaba.druid.sql.ast.SQLStatementImpl;
 import com.alibaba.druid.sql.visitor.SQLASTVisitor;
 
+/**
+ * SELECT语句，例子：SELECT t.id from user t;
+ */
 public class SQLSelectStatement extends SQLStatementImpl {
 
     protected SQLSelect select;

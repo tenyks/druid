@@ -36,7 +36,6 @@ public abstract class SQLExprImpl extends SQLObjectImpl implements SQLExpr {
         return null;
     }
 
-
     public List<SQLObject> getChildren() {
         return Collections.emptyList();
     }

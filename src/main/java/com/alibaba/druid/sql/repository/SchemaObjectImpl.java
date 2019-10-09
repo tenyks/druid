@@ -58,18 +58,18 @@ public class SchemaObjectImpl implements SchemaObject {
         return statement;
     }
 
-    public SQLColumnDefinition findColumn(String columName) {
-        long hash = FnvHash.hashCode64(columName);
+    public SQLColumnDefinition findColumn(String columnName) {
+        long hash = FnvHash.hashCode64(columnName);
         return findColumn(hash);
     }
 
-    public SQLColumnDefinition findColumn(long columNameHash) {
+    public SQLColumnDefinition findColumn(long columnNameHash) {
         if (statement == null) {
             return null;
         }
 
         if (statement instanceof SQLCreateTableStatement) {
-            return ((SQLCreateTableStatement) statement).findColumn(columNameHash);
+            return ((SQLCreateTableStatement) statement).findColumn(columnNameHash);
         }
 
         return null;

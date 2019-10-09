@@ -45,11 +45,11 @@ public class SQLWithSubqueryClause extends SQLObjectImpl {
         return entries;
     }
     
-    public void addEntry(Entry entrie) {
-        if (entrie != null) {
-            entrie.setParent(this);
+    public void addEntry(Entry entries) {
+        if (entries != null) {
+            entries.setParent(this);
         }
-        this.entries.add(entrie);
+        this.entries.add(entries);
     }
 
     public Boolean getRecursive() {

@@ -74,7 +74,7 @@ public class SQLCreateTableParser extends SQLDDLParser {
             }
         } else if (lexer.token == Token.IDENTIFIER && lexer.stringVal().equalsIgnoreCase("LOCAL")) {
             lexer.nextToken();
-            if (lexer.token == Token.IDENTIFIER && lexer.stringVal().equalsIgnoreCase("TEMPORAY")) {
+            if (lexer.token == Token.IDENTIFIER && lexer.stringVal().equalsIgnoreCase("TEMPORARY")) {
                 lexer.nextToken();
                 createTable.setType(SQLCreateTableStatement.Type.LOCAL_TEMPORARY);
             } else {
@@ -89,7 +89,7 @@ public class SQLCreateTableParser extends SQLDDLParser {
             accept(Token.NOT);
             accept(Token.EXISTS);
 
-            createTable.setIfNotExiists(true);
+            createTable.setIfNotExists(true);
         }
 
         createTable.setName(this.exprParser.name());

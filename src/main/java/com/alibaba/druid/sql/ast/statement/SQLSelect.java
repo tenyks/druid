@@ -31,10 +31,31 @@ import com.alibaba.druid.sql.visitor.SQLASTOutputVisitor;
 import com.alibaba.druid.sql.visitor.SQLASTVisitor;
 import com.alibaba.druid.util.JdbcConstants;
 
+/**
+ * SELECT树，
+ * 例子：
+ * SELECT t1.org_id, COUNT(t1.id) AS u_count, GROUP_CONCAT(t2.code) AS code_grp
+ * FROM sm_user t1
+ * LEFT JOIN department t2 ON t1.dept_id = t2.id
+ * WHERE t1.org_id=?
+ * GROUP BY t1.org_id HAVING count(t2.id) > 1
+ * ORDER BY t1.org_id DESC ;
+ */
 public class SQLSelect extends SQLObjectImpl {
 
+    /**
+     *
+     */
     protected SQLWithSubqueryClause withSubQuery;
+
+    /**
+     * SELECT + FROM + Where子句；
+     */
     protected SQLSelectQuery        query;
+
+    /**
+     *
+     */
     protected SQLOrderBy            orderBy;
 
     protected List<SQLHint>         hints;

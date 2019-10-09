@@ -34,8 +34,18 @@ import com.alibaba.druid.sql.ast.statement.SQLTableSource;
 import com.alibaba.druid.sql.visitor.SQLASTVisitor;
 import com.alibaba.druid.util.FnvHash;
 
+/**
+ * 例如：select t.id from user t;
+ */
 public final class SQLPropertyExpr extends SQLExprImpl implements SQLName {
+    /**
+     * 归属，如例子中的't'；
+     */
     private   SQLExpr             owner;
+
+    /**
+     * 名称，如例子中的'id'；
+     */
     private   String              name;
 
     protected long                nameHashCod64;

@@ -23,7 +23,12 @@ import com.alibaba.druid.sql.ast.SQLObject;
 
 public interface SQLTableSource extends SQLObject {
 
+    /**
+     * 获取别名
+     * @return
+     */
     String getAlias();
+
     long aliasHashCode64();
 
     void setAlias(String alias);
@@ -36,9 +41,11 @@ public interface SQLTableSource extends SQLObject {
     boolean containsAlias(String alias);
 
     SQLExpr getFlashback();
+
     void setFlashback(SQLExpr flashback);
 
     SQLColumnDefinition findColumn(String columnName);
+
     SQLColumnDefinition findColumn(long columnNameHash);
 
     SQLTableSource findTableSourceWithColumn(String columnName);

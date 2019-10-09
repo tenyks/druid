@@ -44,7 +44,7 @@ import com.alibaba.druid.util.lang.Consumer;
 
 public class SQLCreateTableStatement extends SQLStatementImpl implements SQLDDLStatement, SQLCreateStatement {
 
-    protected boolean                          ifNotExiists = false;
+    protected boolean                          ifNotExists = false;
     protected Type                             type;
     protected SQLExprTableSource               tableSource;
 
@@ -160,12 +160,12 @@ public class SQLCreateTableStatement extends SQLStatementImpl implements SQLDDLS
         return tableElementList;
     }
 
-    public boolean isIfNotExiists() {
-        return ifNotExiists;
+    public boolean isIfNotExists() {
+        return ifNotExists;
     }
 
-    public void setIfNotExiists(boolean ifNotExiists) {
-        this.ifNotExiists = ifNotExiists;
+    public void setIfNotExists(boolean ifNotExists) {
+        this.ifNotExists = ifNotExists;
     }
 
     public SQLExprTableSource getInherits() {
@@ -1014,7 +1014,7 @@ public class SQLCreateTableStatement extends SQLStatementImpl implements SQLDDLS
     }
 
     public void cloneTo(SQLCreateTableStatement x) {
-        x.ifNotExiists = ifNotExiists;
+        x.ifNotExists = ifNotExists;
         x.type = type;
         if (tableSource != null) {
             x.setTableSource(tableSource.clone());

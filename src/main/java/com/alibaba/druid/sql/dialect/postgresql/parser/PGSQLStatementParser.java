@@ -496,9 +496,6 @@ public class PGSQLStatementParser extends SQLStatementParser {
         }
 
         // value | 'value' | DEFAULT
-
-
-
         SQLExpr valueExpr;
         if (values.size() == 1) {
             valueExpr = values.get(0);

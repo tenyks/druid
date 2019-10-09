@@ -25,8 +25,8 @@ public interface SchemaObject {
 
     SQLStatement getStatement();
 
-    SQLColumnDefinition findColumn(String columName);
-    SQLColumnDefinition findColumn(long columNameHash);
+    SQLColumnDefinition findColumn(String columnName);
+    SQLColumnDefinition findColumn(long columnNameHash);
 
     boolean matchIndex(String columnName);
 
