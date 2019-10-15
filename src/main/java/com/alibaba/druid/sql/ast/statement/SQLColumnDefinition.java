@@ -53,7 +53,7 @@ public class SQLColumnDefinition extends SQLObjectImpl implements SQLTableElemen
     protected boolean                         virtual       = false;
 
     protected Identity                        identity;
-    protected SQLExpr                         generatedAlawsAs;
+    protected SQLExpr                         generatedAlwaysAs;
 
     public SQLColumnDefinition(){
 
@@ -71,15 +71,15 @@ public class SQLColumnDefinition extends SQLObjectImpl implements SQLTableElemen
         this.identity = x;
     }
 
-    public SQLExpr getGeneratedAlawsAs() {
-        return generatedAlawsAs;
+    public SQLExpr getGeneratedAlwaysAs() {
+        return generatedAlwaysAs;
     }
 
-    public void setGeneratedAlawsAs(SQLExpr x) {
+    public void setGeneratedAlwaysAs(SQLExpr x) {
         if (x != null) {
             x.setParent(this);
         }
-        this.generatedAlawsAs = x;
+        this.generatedAlwaysAs = x;
     }
 
     public Boolean getEnable() {

@@ -78,7 +78,7 @@ public final class ExportParameterVisitorUtils {
 
     
 
-    public static boolean exportParamterAndAccept(final List<Object> parameters, List<SQLExpr> list) {
+    public static boolean exportParameterAndAccept(final List<Object> parameters, List<SQLExpr> list) {
         for (int i = 0, size = list.size(); i < size; ++i) {
             SQLExpr param = list.get(i);
 

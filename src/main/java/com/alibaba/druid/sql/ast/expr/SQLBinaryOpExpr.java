@@ -201,7 +201,7 @@ public class SQLBinaryOpExpr extends SQLExprImpl implements SQLReplaceable, Seri
     }
 
 
-    public boolean equalsIgoreOrder(SQLBinaryOpExpr other) {
+    public boolean equalsIgnoreOrder(SQLBinaryOpExpr other) {
         if (this == other) {
             return true;
         }
@@ -400,7 +400,7 @@ public class SQLBinaryOpExpr extends SQLExprImpl implements SQLReplaceable, Seri
                     exist = true;
                 } else if (itemA instanceof SQLBinaryOpExpr
                         && itemB instanceof SQLBinaryOpExpr) {
-                    if (((SQLBinaryOpExpr) itemA).equalsIgoreOrder((SQLBinaryOpExpr) itemB)) {
+                    if (((SQLBinaryOpExpr) itemA).equalsIgnoreOrder((SQLBinaryOpExpr) itemB)) {
                         exist = true;
                     }
                 }
@@ -420,30 +420,30 @@ public class SQLBinaryOpExpr extends SQLExprImpl implements SQLReplaceable, Seri
         return new SQLBinaryOpExpr(expr, SQLBinaryOperator.Is, new SQLNullExpr());
     }
 
-    public boolean replace(SQLExpr expr, SQLExpr taget) {
+    public boolean replace(SQLExpr expr, SQLExpr target) {
         SQLObject parent = getParent();
 
         if (left == expr) {
-            if (taget == null) {
+            if (target == null) {
                 if (parent instanceof SQLReplaceable) {
                     return ((SQLReplaceable) parent).replace(this, right);
                 } else {
                     return false;
                 }
             }
-            this.setLeft(taget);
+            this.setLeft(target);
             return true;
         }
 
         if (right == expr) {
-            if (taget == null) {
+            if (target == null) {
                 if (parent instanceof SQLReplaceable) {
                     return ((SQLReplaceable) parent).replace(this, left);
                 } else {
                     return false;
                 }
             }
-            this.setRight(taget);
+            this.setRight(target);
             return true;
         }
 
@@ -464,7 +464,7 @@ public class SQLBinaryOpExpr extends SQLExprImpl implements SQLReplaceable, Seri
 
     public boolean contains(SQLExpr item) {
         if (item instanceof SQLBinaryOpExpr) {
-            if (this.equalsIgoreOrder((SQLBinaryOpExpr) item)) {
+            if (this.equalsIgnoreOrder((SQLBinaryOpExpr) item)) {
                 return true;
             }
 

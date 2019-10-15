@@ -2536,7 +2536,7 @@ public class SQLASTOutputVisitor extends SQLASTVisitorAdapter implements Paramet
             }
         }
 
-        SQLExpr generatedAlawsAs = x.getGeneratedAlawsAs();
+        SQLExpr generatedAlawsAs = x.getGeneratedAlwaysAs();
         if (generatedAlawsAs != null) {
             print0(ucase ? " GENERATED ALWAYS AS " : " generated always as ");
             printExpr(generatedAlawsAs);

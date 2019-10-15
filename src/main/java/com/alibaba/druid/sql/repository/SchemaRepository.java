@@ -345,7 +345,7 @@ public class SchemaRepository {
                         buf.append("ERROR 1146 (42S02): Table '" + table + "' doesn't exist\n");
                     } else {
                         MySqlCreateTableStatement createTableStmt = (MySqlCreateTableStatement) schemaObject.getStatement();
-                        createTableStmt.showCoumns(buf);
+                        createTableStmt.showColumns(buf);
                     }
                 } else if (stmt instanceof MySqlShowCreateTableStatement) {
                     MySqlShowCreateTableStatement showCreateTableStmt = (MySqlShowCreateTableStatement) stmt;

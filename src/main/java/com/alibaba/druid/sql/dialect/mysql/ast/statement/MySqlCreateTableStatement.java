@@ -73,6 +73,11 @@ public class MySqlCreateTableStatement extends SQLCreateTableStatement implement
         this.tableOptions = tableOptions;
     }
 
+    @Override
+    public Map<String, SQLObject> getTableOptions() {
+        return this.tableOptions;
+    }
+
     @Deprecated
     public SQLSelect getQuery() {
         return select;
@@ -178,7 +183,7 @@ public class MySqlCreateTableStatement extends SQLCreateTableStatement implement
         super.simplify();
     }
 
-    public void showCoumns(Appendable out) throws IOException {
+    public void showColumns(Appendable out) throws IOException {
         this.accept(new MySqlShowColumnOutpuVisitor(out));
     }
 

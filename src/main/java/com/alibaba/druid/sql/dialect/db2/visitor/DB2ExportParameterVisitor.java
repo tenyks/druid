@@ -89,7 +89,7 @@ public class DB2ExportParameterVisitor extends DB2OutputVisitor implements Expor
         if(requireParameterizedOutput){
             return super.visit(x);
         }
-        ExportParameterVisitorUtils.exportParamterAndAccept(this.parameters, x.getParameters());
+        ExportParameterVisitorUtils.exportParameterAndAccept(this.parameters, x.getParameters());
         return true;
     }
 
@@ -99,7 +99,7 @@ public class DB2ExportParameterVisitor extends DB2OutputVisitor implements Expor
             return super.visit(x);
         }
         
-        ExportParameterVisitorUtils.exportParamterAndAccept(this.parameters, x.getTargetList());
+        ExportParameterVisitorUtils.exportParameterAndAccept(this.parameters, x.getTargetList());
         return true;
     }
 

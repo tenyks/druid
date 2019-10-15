@@ -76,7 +76,7 @@ public class SQLCreateTableStatement extends SQLStatementImpl implements SQLDDLS
     protected final List<SQLSelectOrderByItem> sortedBy = new ArrayList<SQLSelectOrderByItem>();
     protected int                              buckets;
 
-    protected Map<String, SQLObject> tableOptions = new LinkedHashMap<String, SQLObject>();
+    protected Map<String, SQLObject>            tableOptions = new LinkedHashMap<String, SQLObject>();
 
     public SQLCreateTableStatement(){
 
@@ -152,9 +152,7 @@ public class SQLCreateTableStatement extends SQLStatementImpl implements SQLDDLS
         this.type = type;
     }
 
-    public static enum Type {
-                             GLOBAL_TEMPORARY, LOCAL_TEMPORARY
-    }
+    public static enum Type {GLOBAL_TEMPORARY, LOCAL_TEMPORARY};
 
     public List<SQLTableElement> getTableElementList() {
         return tableElementList;

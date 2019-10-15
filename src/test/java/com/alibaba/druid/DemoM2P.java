@@ -2,7 +2,11 @@ package com.alibaba.druid;
 
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.ast.SQLStatement;
+import com.alibaba.druid.sql.ast.statement.SQLCreateTableStatement;
+import com.alibaba.druid.sql.ast.statement.SQLSelectStatement;
 import com.alibaba.druid.sql.dialect.mysql.visitor.MySqlOutputVisitor;
+import com.alibaba.druid.sql.dialect.postgresql.ast.stmt.PGSelectStatement;
+import com.alibaba.druid.sql.dialect.postgresql.visitor.PGOutputVisitor;
 import com.alibaba.druid.util.JdbcConstants;
 
 import java.nio.CharBuffer;
@@ -17,6 +21,23 @@ import java.util.List;
 public class DemoM2P {
 
     public static void main(String[] args) {
+        String sql = "CREATE TABLE `about_us` (   `id` bigint(20) NOT NULL AUTO_INCREMENT,   `org_id` bigint(20) NOT NULL,   `dept_id` bigint(20) DEFAULT NULL,   `org_ref_id` bigint(20) DEFAULT NULL,   `app_name` varchar(50) NOT NULL,   `app_name_en` varchar(50) DEFAULT NULL,   `app_explain` varchar(2000) DEFAULT NULL,   `app_explain_en` varchar(2000) DEFAULT NULL,   `app_service_tel` varchar(64) DEFAULT NULL,   `app_logo_url` varchar(255) DEFAULT NULL,   PRIMARY KEY (`id`),   KEY `idx_org_ref_id` (`org_ref_id`) USING BTREE,   KEY `idx_dept_id` (`dept_id`) USING BTREE ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;";
+        List<SQLStatement> stmtList = SQLUtils.parseStatements(sql, JdbcConstants.MYSQL);
+
+        if (stmtList == null || stmtList.isEmpty()) return;
+
+        SQLStatement stmt = convertToPGSqlStatement(stmtList.get(0));
+
+        CharBuffer output = CharBuffer.allocate(2048);
+        PGOutputVisitor v = new PGOutputVisitor(output);
+
+        v.visit((SQLCreateTableStatement) stmt);
+
+        output.rewind();
+        System.out.println(output);
+    }
+
+    private static void fun1() {
         CharBuffer output = CharBuffer.allocate(2048);
 
 
@@ -40,4 +61,16 @@ public class DemoM2P {
         System.out.println(output.toString());
     }
 
+    private static SQLStatement convertToPGSqlStatement(SQLStatement stmt) {
+        if (stmt instanceof SQLCreateTableStatement) {
+            return stmt.clone();
+        }
+
+        if (stmt instanceof SQLSelectStatement) {
+            return new PGSelectStatement(((SQLSelectStatement)stmt).getSelect());
+        }
+
+
+        return null;
+    }
 }

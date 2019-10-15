@@ -33,7 +33,7 @@ import com.alibaba.druid.sql.visitor.SQLASTOutputVisitor;
 import com.alibaba.druid.sql.visitor.SQLASTVisitor;
 
 public class SQLUpdateStatement extends SQLStatementImpl implements SQLReplaceable {
-    protected SQLWithSubqueryClause with; // for pg
+    protected SQLWithSubqueryClause         with; // for pg
 
     protected final List<SQLUpdateSetItem> items = new ArrayList<SQLUpdateSetItem>();
     protected SQLExpr                      where;

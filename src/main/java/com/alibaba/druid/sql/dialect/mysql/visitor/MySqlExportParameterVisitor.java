@@ -99,7 +99,7 @@ public class MySqlExportParameterVisitor extends MySqlOutputVisitor implements E
            return super.visit(x);
         }
         
-        ExportParameterVisitorUtils.exportParamterAndAccept(this.parameters, x.getParameters());
+        ExportParameterVisitorUtils.exportParameterAndAccept(this.parameters, x.getParameters());
         return true;
     }
 
@@ -108,7 +108,7 @@ public class MySqlExportParameterVisitor extends MySqlOutputVisitor implements E
         if(requireParameterizedOutput){
             return super.visit(x);
          }
-        ExportParameterVisitorUtils.exportParamterAndAccept(this.parameters, x.getTargetList());
+        ExportParameterVisitorUtils.exportParameterAndAccept(this.parameters, x.getTargetList());
 
         return true;
     }

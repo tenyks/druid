@@ -60,7 +60,7 @@ public class MySqlCreateTable_showColumns_repository_test extends MysqlTest {
         assertEquals(21, createTableStmt.getTableElementList().size());
 
         //StringBuilder buf = new StringBuilder();
-        //createTableStmt.showCoumns(buf);
+        //createTableStmt.showColumns(buf);
 
         assertEquals("+--------------+---------------+------+-----+---------------------+-----------------------------+\n" +
                 "| Field        | Type          | Null | Key | Default             | Extra                       |\n" +

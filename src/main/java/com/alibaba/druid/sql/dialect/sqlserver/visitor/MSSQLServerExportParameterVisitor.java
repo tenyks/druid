@@ -86,7 +86,7 @@ public class MSSQLServerExportParameterVisitor extends SQLServerOutputVisitor im
             return super.visit(x);
         }
         
-        ExportParameterVisitorUtils.exportParamterAndAccept(this.parameters, x.getParameters());
+        ExportParameterVisitorUtils.exportParameterAndAccept(this.parameters, x.getParameters());
 
         return true;
     }
@@ -96,7 +96,7 @@ public class MSSQLServerExportParameterVisitor extends SQLServerOutputVisitor im
         if(requireParameterizedOutput){
             return super.visit(x);
         }
-        ExportParameterVisitorUtils.exportParamterAndAccept(this.parameters, x.getTargetList());
+        ExportParameterVisitorUtils.exportParameterAndAccept(this.parameters, x.getTargetList());
 
         return true;
     }

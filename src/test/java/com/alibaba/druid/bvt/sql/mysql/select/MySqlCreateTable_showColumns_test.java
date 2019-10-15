@@ -19,7 +19,6 @@ import com.alibaba.druid.sql.MysqlTest;
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.ast.SQLStatement;
 import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlCreateTableStatement;
-import com.alibaba.druid.sql.visitor.SchemaStatVisitor;
 import com.alibaba.druid.util.JdbcConstants;
 
 import java.util.List;
@@ -60,7 +59,7 @@ public class MySqlCreateTable_showColumns_test extends MysqlTest {
 
 
         StringBuilder buf = new StringBuilder();
-        stmt.showCoumns(buf);
+        stmt.showColumns(buf);
 
         assertEquals("+--------------+---------------+------+-----+---------------------+-----------------------------+\n" +
                 "| Field        | Type          | Null | Key | Default             | Extra                       |\n" +
